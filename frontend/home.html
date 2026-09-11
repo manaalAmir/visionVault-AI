@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VisionVault AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <span class="badge">AI-powered visual search</span>
+            <h1>VisionVault</h1>
+            <p class="tagline">Search your photos by what's actually in them — not the filename.</p>
+
+            <div class="search-box">
+                <i class="search-icon">&#128269;</i>
+                <input type="text" id="searchInput" placeholder="Try 'a photo of a dog'...">
+                <button onclick="runSearch()">Search</button>
+            </div>
+
+            <div class="upload-box">
+                <label for="fileInput" class="upload-label">
+                    <span>+ Add images</span>
+                </label>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" onchange="uploadImages('fileInput')">
+
+                <label for="folderInput" class="upload-label">
+                    <span>+ Add folder</span>
+                </label>
+                <input type="file" id="folderInput" webkitdirectory directory multiple style="display: none;" onchange="uploadImages('folderInput')">
+
+                <span class="upload-status" id="uploadStatus"></span>
+            </div>
+
+            <div class="info" id="infoText"></div>
+        </div>
+    </div>
+
+    <div class="results-section">
+        <div class="grid" id="resultsGrid"></div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" src="" alt="Full size image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
